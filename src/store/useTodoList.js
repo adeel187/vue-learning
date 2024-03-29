@@ -6,11 +6,10 @@ const initialState = {
 };
 
 export const useTodoList = defineStore("todoList", {
-  state: () =>
-    reactive({
-      todoList: [],
-      inputVal: "task1",
-    }),
+  state: () => ({
+    todoList: [],
+    inputVal: "",
+  }),
   getters: {},
   actions: {
     addItem() {
