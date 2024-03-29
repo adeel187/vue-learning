@@ -3,13 +3,11 @@ import { reactive } from "vue";
 
 const initialState = {
   todoList: [],
+  inputVal: "",
 };
 
 export const useTodoList = defineStore("todoList", {
-  state: () => ({
-    todoList: [],
-    inputVal: "",
-  }),
+  state: () => initialState,
   getters: {},
   actions: {
     addItem() {
