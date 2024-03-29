@@ -3,12 +3,16 @@ import { ref } from "vue";
 import TaskList from "../components/TaskList.vue";
 import { useTodoList } from "@/store/useTodoList";
 import { storeToRefs } from "pinia";
+import { useTodoOption } from "@/store/useTodoOption";
 
 const selectedIndex = ref(null);
 
 const { inputVal, todoList } = storeToRefs(useTodoList());
 const { addItem, handleStatus, deleteTask, updateTask } = useTodoList();
 const store = useTodoList();
+const optionStore = useTodoOption();
+
+console.log(optionStore.inputVal, "option");
 
 const handleFormSubmit = () => {
   // In a future we will impelement form Validation
