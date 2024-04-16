@@ -1,5 +1,7 @@
 export const routerLinks = {
-  home: '/',
-  todoList: '/todo-list',
-  about: '/about'
-}
+  home: "/",
+  staticHome: "/static-home",
+  todoList: "/todo-list",
+  about: "/about",
+  login: "/login",
+};
