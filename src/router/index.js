@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import StaticHomeView from "../views/StaticHomeView.vue";
 import TodoList from "../views/TodoList.vue";
 import { routerLinks } from "./links";
 import Login from "@/views/Auth/Login.vue";
@@ -21,6 +22,17 @@ const router = createRouter({
       name: "home",
       components: {
         default: HomeView,
+        header: Header,
+        footer: Footer,
+        sidebar: SideBar,
+      },
+      meta: { permission: routerPermissions.admin, layout: defaultLayout },
+    },
+    {
+      path: routerLinks.staticHome,
+      name: "static home",
+      components: {
+        default: StaticHomeView,
         header: Header,
         footer: Footer,
         sidebar: SideBar,
@@ -58,14 +70,14 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  const permission = to.meta.permission;
+// router.beforeEach((to, from, next) => {
+//   const permission = to.meta.permission;
 
-  if (permission === routerPermissions.admin) {
-    AuthGuard(to, from, next);
-  } else if (permission === routerPermissions.guest) {
-    next();
-  }
-});
+//   if (permission === routerPermissions.admin) {
+//     AuthGuard(to, from, next);
+//   } else if (permission === routerPermissions.guest) {
+//     next();
+//   }
+// });
 
 export default router;
